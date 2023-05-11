@@ -1,0 +1,26 @@
+<div class="form-group">
+  <header>
+    <app-navbar></app-navbar>
+  </header>
+  <section>
+    <h1>Event à venir :</h1>
+      <form (ngSubmit)="addEvent()">
+        <div class="form-group">
+          <label for="title">Titre :</label>
+          <input type="text" name="title" [(ngModel)]="newEvent.title">
+        </div>
+        <div class="form-group">
+          <label for="start">Date de début :</label>
+          <input type="date" name="start" [(ngModel)]="newEvent.start">
+        </div>
+        <div class="form-group">
+          <label for="end">Date de fin :</label>
+          <input type="date" name="end" [(ngModel)]="newEvent.end">
+        </div>        
+        <div class="form-group">
+          <button type="submit">Ajouter</button>
+        </div>
+    </form>
+    <full-calendar #calendar [events]="events$ | async" [options]="calendarOptions"></full-calendar>
+</section>
+</div>

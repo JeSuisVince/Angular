@@ -1,51 +1,42 @@
 <div class="form-group">
     <header>
-      <nav>
-        <ul>
-          <div class="links">
-            <li><a href="#"routerLink="/home">Accueil</a></li>
-            <li><a href="#"routerLink="/presentation">Présentation</a></li>
-            <li><a href="#">Exposants</a></li>
-            <li><a href="#">Programme</a></li>
-            <li><a href="#"routerLink="/agenda">Agenda</a></li>
-          </div>
-          <li class="logout"><a href="#"routerLink="/login">Déconnexion</a></li>
-        </ul>
-      </nav>
+      <app-navbar></app-navbar>
+      </header>
       <script src="https://www.youtube.com/iframe_api"></script>
-<section>
-    <youtube-player [videoId]="videoId"
-                [height]="700" 
-                [width]="1000"> 
+      <h1>Video du Salon 2023</h1>
+        <section>
+            <youtube-player [videoId]="videoId"
+                        [height]="700" 
+                        [width]="1000"> 
 
-    </youtube-player>
-</section>
-
-<section>
-    <table>
-    <thead>
-      <tr>
-        <th>Exposant</th>
-        <th>Thèmes</th>
-        <th>Provenance</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Lucie</td>
-        <td>25</td>
-        <td>Paris</td>
-      </tr>
-      <tr>
-        <td>Julien</td>
-        <td>32</td>
-        <td>Lyon</td>
-      </tr>
-      <tr>
-        <td>Emma</td>
-        <td>19</td>
-        <td>Marseille</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
+            </youtube-player>
+            
+        </section>      
+        <section class="section_b">
+          <h1>Exposant 2023</h1>
+          <h2>Recherche nom des stands</h2>
+          <form>
+            <input type="text" [(ngModel)]="searchTerm" name="searchTerm" (ngModelChange)="search()">
+          </form>           
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>nom</th>
+                <th>site web</th>
+                <th>Theme</th>
+                <th>Emplacement</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of filteredData">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.URL}}</td>
+                <td>{{item.name2}}</td>
+                <td>{{item.numero}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        </div>
