@@ -4,6 +4,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
+  getCurrentUser() {
+    const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    return user && user.username ? user : null;
+  }
+  
    users = [
     {
       username: 'A',
