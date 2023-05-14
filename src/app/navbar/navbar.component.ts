@@ -7,15 +7,11 @@ import { UserService } from '../serviceU/user.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  username: string = '';
+  username: string | null = '';
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    const currentUser = this.userService.getCurrentUser();
-    if (currentUser) {
-      this.username = currentUser.username;
-    }
-    
+    this.username = localStorage.getItem('username');
   }
 }

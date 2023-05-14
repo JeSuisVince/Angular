@@ -18,6 +18,7 @@ export class LoginComponent {
 
   onSubmit(): void {
     const currentUser = this.userService.users.find(user => user.username === this.username);
+    localStorage.setItem('username', this.username);
     if (currentUser) {
       if (currentUser.password === this.password) {
         this.router.navigate(['/home']);
