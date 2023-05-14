@@ -16,6 +16,11 @@ export class LoginComponent {
 
   constructor(private userService: UserService, private router: Router) {}
 
+  onVisitorClick(): void {
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
+  }  
+
   onSubmit(): void {
     const currentUser = this.userService.users.find(user => user.username === this.username);
     localStorage.setItem('username', this.username);

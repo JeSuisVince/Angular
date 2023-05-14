@@ -21,7 +21,9 @@
           <button type="submit">Ajouter</button>
         </div>
       </form>
-    <full-calendar #calendar [events]="events$ | async" [options]="calendarOptions"></full-calendar>
   </section>
-  <p *ngIf="!username">Veuillez vous connecter pour accéder à cette fonctionnalité.</p>
+    <section>
+      <p *ngIf="!username">Veuillez vous connecter en Admin pour accéder aux fonctionnalités</p>
+      <full-calendar #calendar [events]="events$ | async" [options]="calendarOptions"></full-calendar>
+    </section>
 </div>
