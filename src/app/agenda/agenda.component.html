@@ -2,7 +2,7 @@
   <header>
     <app-navbar></app-navbar>
   </header>
-  <section>
+  <section *ngIf="username">
     <h1>Event à venir :</h1>
       <form (ngSubmit)="addEvent()">
         <div class="form-group">
@@ -20,7 +20,8 @@
         <div class="form-group">
           <button type="submit">Ajouter</button>
         </div>
-    </form>
+      </form>
     <full-calendar #calendar [events]="events$ | async" [options]="calendarOptions"></full-calendar>
-</section>
+  </section>
+  <p *ngIf="!username">Veuillez vous connecter pour accéder à cette fonctionnalité.</p>
 </div>
