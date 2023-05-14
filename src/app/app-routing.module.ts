@@ -5,12 +5,13 @@ import { HomeComponent } from "./home/home.component";
 import { PresentationComponent } from './presentation/presentation.component';
 import { AgendaComponent } from './agenda/agenda.component';
 import { ExposantComponent } from './exposant/exposant.component';
+import { AuthguardGuard } from './guard/authguard.guard';
 
 
 const routes: Routes = [
   // autres routes...
   { path: '', redirectTo: '/login', pathMatch: 'full'},
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [AuthguardGuard] },
   { path: 'home', component : HomeComponent, pathMatch: 'full'},
   { path: 'agenda', component : AgendaComponent, pathMatch: 'full'},
   { path: 'presentation', component: PresentationComponent, pathMatch: 'full'}, 
