@@ -5,6 +5,7 @@ import multiMonthPlugin from '@fullcalendar/multimonth';
 import { Subscription } from 'rxjs';
 import { IEvent } from '../IEvent';
 import { EventService } from '../serviceE/event.service';
+import { UserService } from '../serviceU/user.service';
 
 @Component({
   selector: 'agenda',
@@ -26,10 +27,12 @@ export class AgendaComponent {
   newEvent: any = {};
 
   eventSubscribtion: Subscription = new Subscription;
+  username: string | null = '';
 
   constructor(private eventService: EventService) {}
 
   ngOnInit(): void {
+    this.username = localStorage.getItem('username');
   }
 
   addEvent() {
